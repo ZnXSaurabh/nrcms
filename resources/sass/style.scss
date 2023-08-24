@@ -1,0 +1,1172 @@
+/*!
+Theme Name: RCMS Application
+Theme URI: https://wrcms.in/
+Author: Virendra Singh Karmiyal
+Author URI: https://www.thefuturecreations.com
+Description: Complaint Management System for Western Railway. An application to manage all the admistrative task for Western Railway management.
+Version: 0.1
+*/
+
+$colors: (
+    light-blue: #55b3fb,
+    blue: #388eff,
+    dark-blue: #267def,
+    light-green: #7fde82,
+    green: #62c75f,
+    light-purple: #acb4ff,
+    purple: #798eff,
+    light-pink: #fe97f2,
+    pink: #ff74e7,
+    light-orange: #fec484,
+    orange: #ffb15c,
+    primary: #00e6c7,
+    primary-dark: #01c2a8,
+    primary-light: #d9fffa,
+    secondary: #00acea,
+    secondary-dark: #0192C6,
+    secondary-extra-dark: #007fad,
+    secondary-light: #d7f4ff,
+    text-light: #dedede,
+    text: #999,
+    text-dark: #777,
+    heading: #212529,
+    red: #ff6266,
+    red-light: #FFEEE6,
+    dark-yellow: #ffa137,
+    yellow-light: #fff1ce,
+);
+
+@function color($color-name) {
+    @return map-get($colors, $color-name);
+}
+
+@mixin transition {
+    transition: all .3s ease-in-out;
+}
+
+@mixin afterElement {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background-color: #f9f9f9;
+    font: {
+        family: "Nunito";
+        weight: 400;
+    }
+    color: color(text);
+    line-height: 1.6;
+
+    display: flex;
+    flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+}
+
+button:focus,
+.btn:focus {
+    box-shadow: none;
+    outline: 0;
+}
+
+button:hover,
+label:hover {
+    cursor: pointer;
+}
+
+.feather {
+    vertical-align: middle;
+}
+
+.alert {
+    font-size: .875rem;
+}
+
+.modal {
+    z-index: 999;
+}
+
+.modal-backdrop {
+    z-index: 998;
+}
+
+strong {
+    color: color(heading);
+}
+
+/*--------------------------------------------------------------
+---------- Buttons ----------
+--------------------------------------------------------------*/
+.green-btn {
+    display: flex;
+    align-items: center;
+    background-color: color(light-green);
+    color: #fff;
+    padding: 0.625em 1.5em;
+    border-radius: 3px;
+    @include transition();
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: .875rem;
+
+    .feather {
+        width: 16px;
+        height: 16px;
+    }
+
+    &:hover,
+    &.active {
+        background-color: color(green);
+        color: #fff !important;
+    }
+}
+
+.green-ghost-btn {
+    background-color: transparent;
+    color: color(green);
+    padding: 0.625em 1.5em;
+    border: 2px solid color(green);
+    border-radius: 50px;
+    @include transition();
+    font-weight: 700;
+
+    &:hover {
+        background-color: color(green);
+        color: #fff;
+        text-decoration: none;
+    }
+}
+
+.sm-btn {
+    padding: .3em 1em;
+    font-size: .875rem;
+    text-transform: capitalize;
+}
+
+.action-btn {
+    display: inline-block;
+    padding: .3125em;
+    line-height: 1;
+    border: 0;
+    border-radius: 0.1875em;
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    &:focus {
+        outline: 0;
+    }
+
+    .feather {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+.show-btn {
+    background-color: color(secondary-light);
+    color: color(secondary);
+
+    &:hover {
+        color: color(secondary);
+    }
+}
+
+.edit-btn {
+    background-color: color(primary-light);
+    color: color(primary);
+
+    &:hover {
+        color: color(primary);
+    }
+}
+
+.renewal-btn {
+    background-color: color(yellow-light);
+    color: color(dark-yellow);
+
+    &:hover {
+        color: color(dark-yellow);
+    }
+}
+
+.delete-btn {
+    background-color: color(red-light);
+    color: color(red);
+
+    &:hover {
+        color: color(red);
+    }
+}
+
+/*--------------------------------------------------------------
+---------- Frontend Auth Forms ----------
+--------------------------------------------------------------*/
+.login-page,
+.auth-page {
+    position: relative;
+    height: 100vh;
+    padding: 0 .9375rem;
+
+    .go-back-link {
+        display: inline-block;
+        position: absolute;
+        top: 1.25rem;
+        left: 1.25rem;
+        background-color: rgba(255, 255, 255, .3);
+        color: rgba(255, 255, 255, .7);
+        font-size: 0.875rem;
+        padding: 0.325em 1.875em;
+        border-radius: 5em;
+        @include transition();
+        z-index: 5;
+
+        &:hover {
+            background-color: color(blue);
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .feather {
+            width: 16px;
+            height: 16px;
+        }
+    }
+}
+
+.info-area {
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+
+    .navbar-brand {
+        img {
+            width: 200px;
+        }
+    }
+
+    p {
+        text-align: center;
+        color: color(heading);
+        font-size: 1.5rem;
+    }
+
+    small {
+        color: color(secondary);
+        letter-spacing: 1px;
+    }
+}
+
+.login-form,
+.auth-page {
+    background-color: color(blue);
+    background-image: linear-gradient(color(light-blue), color(blue));
+}
+
+.login-form {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: column;
+    justify-content: center;
+    padding: 1.5em;
+
+    h3,
+    .tag {
+        color: #fff;
+    }
+
+    h3 {
+        font: {
+            weight: 700;
+            size: 1.75rem;
+        }
+        line-height: 1;
+    }
+
+    .tag {
+        font-size: 1rem;
+        margin-bottom: 2em;
+    }
+
+    .form-group {
+        position: relative;
+    }
+
+    .feather {
+        position: absolute;
+        bottom: 7px;
+        right: 0;
+        color: #fff;
+        opacity: .6;
+    }
+
+    label {
+        font-size: .875rem;
+        color: #fff;
+        opacity: .85;
+        margin-bottom: 0;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    select {
+        background-color: transparent;
+        color: #fff;
+        font-size: 1.125rem;
+        padding: 0.625em 2.1875em 0.625em 0;
+        border: 0;
+        border-bottom: 2px solid rgba(255, 255, 255, .3);
+        border-radius: 0;
+        @include transition();
+
+        &:focus {
+            background-color: transparent;
+            color: #fff;
+            border-bottom-color: color(light-green);
+            box-shadow: none;
+            outline: none;
+        }
+    }
+
+    input[type="checkbox"] {
+        display: none;
+
+        & + label {
+            position: relative;
+            padding-left: 1.875em;
+
+            &:after {
+                @include afterElement();
+                background-color: transparent;
+                width: 20px;
+                height: 20px;
+                border: 2px solid rgba(255, 255, 255, .7);
+                border-radius: 3px;
+            }
+        }
+
+        &:checked + label {
+            &:before {
+                position: absolute;
+                content: "✔";
+                top: 0;
+                left: 5px;
+            }
+        }
+    }
+
+    .btn-link {
+        color: rgba(255, 255, 255, .7);
+        padding: 0;
+
+        &:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+    }
+
+    .white-btn {
+        display: block;
+        width: 100%;
+        background-color: #fff;
+        color: color(secondary);
+        padding: 0.625em 1.5em;
+        border-radius: 5rem;
+        @include transition();
+        font-weight: 700;
+
+        svg {
+            margin-left: 0.3125em;
+            @include transition();
+
+            polygon {
+                fill: color(secondary);
+            }
+        }
+
+        &:hover {
+            box-shadow: 0 5px 10px rgba(0, 0, 0, .3);
+            svg {
+                transform: translateX(10px);
+            }
+        }
+    }
+
+    .form-control.is-invalid {
+        background: none;
+    }
+
+    .invalid-feedback {
+        position: absolute;
+        color: yellow;
+        text-align: right;
+        font: {
+            weight: 400;
+            size: 0.75rem;
+        }
+        margin-top: 0;
+    }
+}
+
+.auth-page {
+    .page-links {
+        position: absolute;
+        top: 1.25rem;
+    }
+
+    .go-back-link {
+        position: static;
+    }
+
+    .jumbotron {
+        background-color: #fff;
+    }
+}
+
+.pro-reg {
+    height: auto;
+}
+
+.register-page {
+    height: auto;
+    
+    .login-form {
+        input[type="text"],
+        input[type="password"],
+        select {
+            padding: 0.3em 0 0.3em 0;
+        }
+
+        select {
+            color: #fff;
+
+            option {
+                background-color: color(dark-blue);
+                color: #fff;
+            }
+
+            &:disabled {
+                opacity: .7;
+            }
+        }
+    }
+}
+
+/*--------------------------------------------------------------
+---------- Aside ----------
+--------------------------------------------------------------*/
+aside {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    background-color: color(blue);
+    background-image: linear-gradient(color(light-blue), color(blue));
+    width: 200px;
+    height: 100vh;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, .2);
+    @include transition();
+    z-index: 998;
+
+    h1 {
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: #fff;
+        padding: 20px 10px;
+        margin: 0 0 1.875rem;
+
+        a {
+            padding: 0;
+            border: 0;
+            margin: 0;
+
+            &:hover {
+                background-color: transparent;
+            }
+        }
+    }
+
+    a,
+    button {
+        display: block;
+        background-color: transparent;
+        padding: 10px 10px 7px;
+        border: 0;
+        border-left: 3px solid transparent;
+        color: rgba(255, 255, 255, .85);
+        font-size: .875rem;
+        margin: 0 0 0.5em .9375rem;
+        @include transition();
+
+        &.active,
+        &:hover {
+            background-color: color(dark-blue);
+            color: #fff;
+            border-radius: 50px 0 0 50px;
+            text-decoration: none;
+        }
+
+        &:focus {
+            background-color: transparent;
+        }
+
+        .feather {
+            display: inline-block;
+            margin: -4px 3px 0 0;
+            width: 1rem;
+            height: 1rem;
+        }
+    }
+
+    .seperator {
+        margin-top: 1.5rem 0;
+    }
+}
+
+#pageAside.slide-in {
+    left: 0;
+}
+
+.collapse-menu {
+    margin-bottom: .4375rem;
+
+    .card,
+    .card-header,
+    .card-body {
+        background-color: transparent;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+    }
+
+    .card-header a {
+        margin-bottom: 0;
+        position: relative;
+
+        &[aria-expanded="true"] {
+            .arrow {
+                transform: rotate(180deg);
+            }
+        }
+        .arrow {
+            position: absolute;
+            top: 17px;
+            right: 4px;
+            @include transition();
+        }
+    }
+
+    .collapse-sub-menu {
+        background-color: transparent;
+        padding-left: 1rem;
+
+        a {
+            background-color: transparent;
+            border-left: 0;
+            font-size: .75rem;
+            opacity: .7;
+            margin: 0 0 0 1.5rem;
+            position: relative;
+
+            &.active {
+                color: #fff;
+                opacity: 1;
+
+                &:before,
+                &:after {
+                    opacity: .8;
+                }
+            }
+
+            &:before,
+            &:after {
+                @include afterElement();
+                left: -5px;
+                background-color: #fff;
+                opacity: .4;
+            }
+
+            &:before {
+                top: 50%;
+                transform: translateY(-50%);
+                height: 1px;
+                width: 10px;
+            }
+
+            &:after {
+                width: 1px;
+                height: 100%;
+            }
+
+            &:last-child {
+                &:after {
+                    height: 50%;
+                }
+            }
+        }
+    }
+}
+
+/*--------------------------------------------------------------
+---------- Footer ----------
+--------------------------------------------------------------*/
+footer {
+    padding: 1em;
+    margin-top: auto;
+    text-align: center;
+
+    span {
+        color: color(blue);
+    }
+}
+
+/*--------------------------------------------------------------
+---------- Header ----------
+--------------------------------------------------------------*/
+header.bg-white {
+    background-color: color(blue) !important;
+    padding: .625rem .9375rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+
+    .navbar-brand {
+        padding: 0;
+
+        img {
+            width: 120px;
+        }
+    }
+
+    .toggler {
+        background-color: transparent;
+        color: #fff;
+        border: 0;
+
+        .feather-x {
+            display: none;
+        }
+
+        &.show-cross {
+            .feather-menu {
+                display: none;
+            }
+            .feather-x {
+                display: inline-block;
+            }
+        }
+    }
+
+    h2 {
+        color: color(secondary);
+        margin: 0;
+        font-size: 1.5rem;
+    } 
+
+    .user-link {
+        span {
+            font: {
+                size: .875rem;
+                weight: 700;
+            }
+            color: color(heading);
+        }
+        
+        .material-icons {
+            font: {
+                size: 1.5rem;
+                weight: 400;
+            }
+            color: #fff;
+        }
+    }
+}
+
+#toggleNavigation {
+    background-color: #fff;
+    padding: 0;
+    border: 0;
+
+    svg path {
+        fill: color(primary);
+    }
+
+    &:hover svg path {
+        fill: color(primary-dark);
+    }
+
+    #rightArrow {
+        display: none;
+    }
+
+    &.menu-hidden {
+        #hamburger {
+            display: none;
+        }
+        #rightArrow {
+            display: block;
+        }
+    }
+}
+
+/*--------------------------------------------------------------
+---------- Main ----------
+--------------------------------------------------------------*/
+main {
+    margin-bottom: 3.125em;
+
+    h2 {
+        color: color(blue);
+        text-transform: uppercase;
+        font-size: 1rem;
+        padding-bottom: 0.625rem;
+        border-bottom: 1px solid color(text-light);
+        margin-bottom: 1.25rem;
+    }
+
+    h3 {
+        color: color(heading);
+        font: {
+            size: 1.3125rem;
+            weight: 400;
+        }
+    }
+
+    h4 {
+        color: color(secondary);
+        font: {
+            size: 1rem;
+            weight: 400;
+        }
+        text-transform: uppercase;
+        padding-bottom: 0.9375em;
+        border-bottom: 2px solid color(primary-light);
+        margin: 3.125em 0 1.5em;
+    }
+
+    h5 {
+        font-size: .875rem;
+        color: color(text);
+        padding-bottom: .625em;
+        border-bottom: 1px solid color(text-light);
+        margin-bottom: 1.25em;
+
+        span {
+            color: color(heading);
+            margin-left: 5px;
+        }
+    }
+
+    .form-section:first-child h4 {
+        margin-top: 0;
+    }
+
+    .btn {
+        .material-icons {
+            font-size: 1.3125em;
+            margin-top: -5px;
+        }
+    }
+    
+    .content-area {
+        background-color: #fff;
+        padding: 0.9375em;
+        box-shadow: 0 0 7px rgba(0, 0, 0, .1);
+    }
+}
+
+/*--------------------------------------------------------------
+---------- Counter Cards ----------
+--------------------------------------------------------------*/
+.counter-card {
+    background-color: color(light-blue);
+    color: #fff;
+    padding: 1.25rem;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    position: relative;
+
+    &:after,
+    &:before {
+        @include afterElement();
+        background-color: rgba(255, 255, 255, .15);
+        width: 100px;
+        height: 100px;
+        border-radius: 100px;
+        top: -50px;
+        left: -50px;
+        z-index: 1;
+    }
+
+    &:after {
+        left: -15px;
+        top: -60px;
+    }
+
+    .counter {
+        display: block;
+        font: {
+            size: 1.5rem;
+            weight: 700;
+        }
+    }
+
+    .body {
+        opacity: .8;
+    }
+
+    &.green {
+        background-color: color(green);
+        background-image: linear-gradient(color(light-green), color(green));
+    }
+
+    &.purple {
+        background-color: color(purple);
+        background-image: linear-gradient(color(light-purple), color(purple));
+    }
+
+    &.pink {
+        background-color: color(pink);
+        background-image: linear-gradient(color(light-pink), color(pink));
+    }
+
+    &.orange {
+        background-color: color(orange);
+        background-image: linear-gradient(color(light-orange), color(orange));
+    }
+}
+
+/*--------------------------------------------------------------
+---------- Tables ----------
+--------------------------------------------------------------*/
+.table {
+    background-color: #fff;
+    margin-bottom: 0;
+
+    th {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+
+        &.sno {
+            width: 4%;
+        }
+
+        &.actions {
+            width: 10%;
+        }
+    }
+
+    thead th,
+    td {
+        border: 1px solid #f1f1f1;
+    }
+
+    tbody {
+        td {
+            vertical-align: middle;
+            border-top: 0;
+        }
+    }
+
+    td {
+        font-size: .8125rem;
+        padding: .625em;
+    }
+
+    .small-font {
+        th {
+            font-size: .875rem;
+        }
+    }
+
+    .table {
+        tbody td {
+            padding: 0;
+            border: 0;
+        }
+    }
+
+    &.certificate-table td {
+        font-size: 1rem;
+    }
+}
+
+.dataTables_wrapper {
+    .row:first-child {
+        margin-bottom: 1rem;
+    }
+
+    .row:last-child {
+        margin-top: 1rem;
+    }
+
+    .form-control {
+        border-radius: 0;
+
+        &:focus {
+            outline: none;
+            box-shadow: none;
+            border-color: color(light-blue);
+        }
+    }
+
+    label,
+    .dataTables_info,
+    .page-link {
+        font-size: .875rem;
+    }
+
+    .dataTables_info {
+        padding-top: 0 !important;
+    }
+
+    .pagination {
+        .page-item {
+            margin-bottom: 0;
+        }
+
+        .page-item.active .page-link {
+            background-color: color(light-blue);
+            color: #fff;
+            border-color: color(light-blue);
+        }
+
+        .page-link {
+            color: color(text);
+            font-size: .75rem;
+            padding: .3125em .5em; 
+            border: 1px solid color(text-light);
+
+            &:focus {
+                box-shadow: none;
+            }
+        }
+    }
+}
+
+/*--------------------------------------------------------------
+---------- Forms ----------
+--------------------------------------------------------------*/
+form {
+    .form-group {
+        position: relative;
+        margin-bottom: 1.875em;
+    }
+
+    label {
+        font-size: .875rem;
+        color: color(text-dark);
+    }
+
+    input:not([type='checkbox']),
+    textarea,
+    select {
+        display: block;
+        width: 100%;
+        border: 0;
+        border-bottom: 2px solid color(text-light);
+        font-size: 0.9375rem;
+
+        &:focus {
+            border-bottom-color: color(light-blue);
+            outline: none;
+            box-shadow: none;
+        }
+    }
+
+    input:read-only,
+    textarea:read-only {
+        background-color: #f7f7f7;
+
+        &:focus {
+            outline: none;
+            box-shadow: none;
+        }
+    }
+
+    .invalid-feedback {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 105%;
+        font-size: .75em;
+        line-height: 1;
+    }
+}
+
+.indicator {
+    font: {
+        size: .875em;
+        weight: 300;
+    }
+    color: color(light-purple);
+}
+
+.delete-form {
+    display: inline-block;
+}
+
+.big-selector {
+    width: 100%;
+    padding: .875em 1.25em;
+    border: 2px solid color(text-light);
+
+    &:focus {
+        border-color: color(primary);
+        outline: none;
+        box-shadow: none;
+    }
+}
+
+.custom-radio {
+    input[type="radio"] {
+        display: none;
+    }
+
+    label {
+        width: 100%;
+        text-align: center;
+        background-color: color(text-light);
+        color: color(text-dark);
+        padding: .625rem 1.25rem;
+        border-radius: 5px;
+        @include transition();
+    }
+
+    input[type="radio"]:checked+label {
+        background-color: color(secondary);
+        color: #fff;
+    }
+}
+
+/*--------------------------------------------------------------
+---------- Custom Modal ----------
+--------------------------------------------------------------*/
+.custom-modal {
+    .modal-content,
+    .modal-header,
+    .modal-footer {
+        border-radius: 0;
+    }
+
+    .modal-header {
+        background-color: color(light-blue);
+        border: 0;
+
+        h3{
+            color: #fff;
+        }
+    }
+}
+
+/*--------------------------------------------------------------
+---------- Cards ----------
+--------------------------------------------------------------*/
+.card {
+    &,
+    .card-header,
+    .card-body {
+        border-radius: 0;
+    }
+
+    h4 {
+        color: color(light-blue);
+        font-weight: 700;
+        padding: 0;
+        border: 0;
+        margin: 0;
+        line-height: 1;
+        text-transform: capitalize;
+    }
+
+    p.card-text {
+        color: color(heading);
+    }
+}
+
+#jobCard {
+    h4 {
+        padding: 0;
+        border: 0;
+        margin: 0 0 5px;
+        font-weight: 700;
+    }
+}
+
+/*--------------------------------------------------------------
+---------- Media Queries ----------
+--------------------------------------------------------------*/
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+    .auth-page {
+        height: 100%;
+
+        .jumbotron {
+            padding: 1.875rem;
+        }
+    }
+
+    .register-page {
+        height: auto;
+    }
+
+    .wide-custom-modal .modal-dialog {
+        max-width: 90%;
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+    .login-page {
+        .go-back-link {
+            background-color: color(light-blue);
+            color: rgba(255, 255, 255, .7);
+            padding: .625em 1.875em;
+        }
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+    .login-form {
+        padding: 6.25em;
+    }
+
+    aside {
+        left: 0;
+    }
+
+    header,
+    main,
+    footer {
+        max-width: calc(100vw - 200px);
+        margin-left: 200px;
+    }
+
+    header.bg-white {
+        background-color: #fff !important;
+        padding: 1.25rem 0;
+    }
+
+    .counter-card {
+        svg {
+            width: 2rem;
+            height: 2rem;
+        }
+    }
+}

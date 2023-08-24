@@ -1,0 +1,253 @@
+@media (max-width: 768px){
+	.page-header {
+	    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	    -webkit-transition: all .3s linear;
+	    transition: all .3s linear;
+	}
+	.page-header.nav-up {
+	    top: -67px;
+	}
+	main{
+		margin-top: 30px;
+	}
+	table{
+		width: 100% !important;
+	}
+	.dataTable table,
+	.dataTable thead,
+	.dataTable tbody,
+	.dataTable th,
+	.dataTable td,
+	.dataTable td,
+	.dataTable tr { 
+		display: block; 
+	}
+	.dataTable thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	.dataTable tr:last-child{
+		margin-bottom: 0px;
+	}
+	.dataTable tr{ 
+		border: 1px solid #ccc;
+		margin-bottom: 20px;
+	}
+	.dataTable td{ 
+		border: none;
+		border-bottom:none;
+		position: relative;
+		padding-left: 50%!important;
+		height:auto;
+		font-size:11px;
+		font-weight: 600;
+	    word-break: break-word;
+		text-align:left;
+	    border:none!important;
+		border-bottom: 1px solid #DBE7F1!important;
+	}
+	.dataTable td:before { 
+		position: absolute;
+		top: 6px;
+		left: 6px;
+		width: 45%;
+		font-weight: 500;
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+	
+	.sse-dashboard td:nth-of-type(1):before { content: "#"; }
+	.sse-dashboard td:nth-of-type(2):before { content: "Type"; }
+	.sse-dashboard td:nth-of-type(3):before { content: "Complaint ID"; }
+	.sse-dashboard td:nth-of-type(4):before { content: "Category"; }
+	.sse-dashboard td:nth-of-type(5):before { content: "Sub Category"; }
+	.sse-dashboard td:nth-of-type(6):before { content: "Status"; }
+	.sse-dashboard td:nth-of-type(7):before { content: "Action"; }
+
+	#userDatatable td:nth-of-type(1):before { content: "#"; }
+	#userDatatable td:nth-of-type(2):before { content: "Photo"; }
+	#userDatatable td:nth-of-type(3):before { content: "Name"; }
+	#userDatatable td:nth-of-type(4):before { content: "Email"; }
+	#userDatatable td:nth-of-type(5):before { content: "Mobile No."; }
+	#userDatatable td:nth-of-type(6):before { content: "Register Date"; }
+	#userDatatable td:nth-of-type(7):before { content: "Action"; }
+
+	#vendorDataTable td:nth-of-type(1):before { content: "#"; }
+	#vendorDataTable td:nth-of-type(2):before { content: "Photo"; }
+	#vendorDataTable td:nth-of-type(3):before { content: "Name"; }
+	#vendorDataTable td:nth-of-type(4):before { content: "Email"; }
+	#vendorDataTable td:nth-of-type(5):before { content: "Mobile No."; }
+	#vendorDataTable td:nth-of-type(6):before { content: "Action"; }
+
+	#resourceDataTable td:nth-of-type(1):before { content: "#"; }
+	#resourceDataTable td:nth-of-type(2):before { content: "Photo"; }
+	#resourceDataTable td:nth-of-type(3):before { content: "Name"; }
+	#resourceDataTable td:nth-of-type(4):before { content: "Email"; }
+	#resourceDataTable td:nth-of-type(5):before { content: "Mobile No."; }
+	#resourceDataTable td:nth-of-type(6):before { content: "Action"; }
+
+	#adminDatatable td:nth-of-type(1):before { content: "#"; }
+	#adminDatatable td:nth-of-type(2):before { content: "Photo"; }
+	#adminDatatable td:nth-of-type(3):before { content: "Name"; }
+	#adminDatatable td:nth-of-type(4):before { content: "Email"; }
+	#adminDatatable td:nth-of-type(5):before { content: "Mobile No."; }
+	#adminDatatable td:nth-of-type(6):before { content: "Role"; }
+	#adminDatatable td:nth-of-type(7):before { content: "Location-Area"; }
+	#adminDatatable td:nth-of-type(8):before { content: "Action"; }
+
+	#locationDatatable td:nth-of-type(1):before { content: "#"; }
+	#locationDatatable td:nth-of-type(2):before { content: "Location"; }
+	#locationDatatable td:nth-of-type(3):before { content: "Description"; }
+	#locationDatatable td:nth-of-type(4):before { content: "Action"; }
+
+	#areaDatatable td:nth-of-type(1):before { content: "#"; }
+	#areaDatatable td:nth-of-type(2):before { content: "Location"; }
+	#areaDatatable td:nth-of-type(3):before { content: "Area"; }
+	#areaDatatable td:nth-of-type(4):before { content: "Description"; }
+	#areaDatatable td:nth-of-type(5):before { content: "Action"; }
+
+	#housetypeDatatable td:nth-of-type(1):before { content: "#"; }
+	#housetypeDatatable td:nth-of-type(2):before { content: "Location"; }
+	#housetypeDatatable td:nth-of-type(3):before { content: "Area"; }
+	#housetypeDatatable td:nth-of-type(4):before { content: "HouseType"; }
+	#housetypeDatatable td:nth-of-type(5):before { content: "Description"; }
+	#housetypeDatatable td:nth-of-type(6):before { content: "Action"; }
+
+	#blockDatatable td:nth-of-type(1):before { content: "#"; }
+	#blockDatatable td:nth-of-type(2):before { content: "Location"; }
+	#blockDatatable td:nth-of-type(3):before { content: "Area"; }
+	#blockDatatable td:nth-of-type(4):before { content: "HouseType"; }
+	#blockDatatable td:nth-of-type(5):before { content: "Block"; }
+	#blockDatatable td:nth-of-type(6):before { content: "Description"; }
+	#blockDatatable td:nth-of-type(7):before { content: "Action"; }
+
+	#quarterDatatable td:nth-of-type(1):before { content: "#"; }
+	#quarterDatatable td:nth-of-type(2):before { content: "Location"; }
+	#quarterDatatable td:nth-of-type(3):before { content: "Area"; }
+	#quarterDatatable td:nth-of-type(4):before { content: "HouseType"; }
+	#quarterDatatable td:nth-of-type(5):before { content: "Block"; }
+	#quarterDatatable td:nth-of-type(5):before { content: "Qtr No."; }
+	#quarterDatatable td:nth-of-type(6):before { content: "Block"; }
+	#quarterDatatable td:nth-of-type(7):before { content: "Status"; }
+	#quarterDatatable td:nth-of-type(8):before { content: "Action"; }
+
+	#categoryDatatable td:nth-of-type(1):before { content: "#"; }
+	#categoryDatatable td:nth-of-type(2):before { content: "Icon"; }
+	#categoryDatatable td:nth-of-type(3):before { content: "Super Category"; }
+	#categoryDatatable td:nth-of-type(4):before { content: "Category"; }
+	#categoryDatatable td:nth-of-type(5):before { content: "Description"; }
+	#categoryDatatable td:nth-of-type(6):before { content: "Action"; }
+
+	#superCategoryDatatable td:nth-of-type(1):before { content: "#"; }
+	#superCategoryDatatable td:nth-of-type(2):before { content: "Icon"; }
+	#superCategoryDatatable td:nth-of-type(3):before { content: "Category"; }
+	#superCategoryDatatable td:nth-of-type(4):before { content: "Description"; }
+	#superCategoryDatatable td:nth-of-type(5):before { content: "Action"; }
+
+	#subCategoryDatatable td:nth-of-type(1):before { content: "#"; }
+	#subCategoryDatatable td:nth-of-type(2):before { content: "Icon"; }
+	#subCategoryDatatable td:nth-of-type(3):before { content: "Category"; }
+	#subCategoryDatatable td:nth-of-type(4):before { content: "Sub Category"; }
+	#subCategoryDatatable td:nth-of-type(5):before { content: "Description"; }
+	#subCategoryDatatable td:nth-of-type(6):before { content: "Action"; }
+
+	#sbDatatable td:nth-of-type(1):before { content: "#"; }
+	#sbDatatable td:nth-of-type(2):before { content: "Location"; }
+	#sbDatatable td:nth-of-type(3):before { content: "Area"; }
+	#sbDatatable td:nth-of-type(4):before { content: "Building"; }
+	#sbDatatable td:nth-of-type(5):before { content: "Status"; }
+	#sbDatatable td:nth-of-type(6):before { content: "Action"; }
+
+	#complaintDataTable td:nth-of-type(1):before { content: "S No"; }
+	#complaintDataTable td:nth-of-type(2):before { content: "Type"; }
+	#complaintDataTable td:nth-of-type(3):before { content: "Complaint ID"; }
+	#complaintDataTable td:nth-of-type(4):before { content: "Category"; }
+	#complaintDataTable td:nth-of-type(5):before { content: "Sub Category"; }
+	#complaintDataTable td:nth-of-type(6):before { content: "Status"; }
+	#complaintDataTable td:nth-of-type(7):before { content: "Date"; }
+	#complaintDataTable td:nth-of-type(8):before { content: "Action"; }
+
+	.bottom_menu{
+		position: fixed;
+	    width: 100%;
+	    bottom: 0;
+	    padding: 0px;
+	    box-shadow: 0px 0px 8px 0px #388eff85;
+	    -webkit-box-shadow: 0px 0px 8px 0px #388eff85;
+	    -webkit-transition: all .3s linear;
+	    transition: all .3s linear;
+	}
+	.bottom_menu.nav-up {
+	    bottom: -67px;
+	}
+	.bottom_menu ul{
+		list-style: none;
+		margin-bottom: 0;
+		padding: 4px 0px 0px 0px;
+	}
+	.bottom_menu ul li{
+		display: inline-flex;
+	}
+	.bottom_menu ul li a{
+		padding: 0px 16px;
+	}
+	.bottom_menu ul li a:hover{
+		text-decoration: none;
+	}
+	.bottom_menu ul li.active a{
+		color: #3a577d;
+	}
+	.bottom_menu ul li a svg{
+		display: block;
+		width: auto;
+		margin: auto;
+	}
+	.content-container {
+	    background: #fff0;
+	    padding: 8px;
+	    border: 1px solid #dedede;
+	    border-radius: 3px;
+	    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+	}
+	.col.heading {
+	    width: 100%;
+	    display: inline-flex;
+	}
+	.content-container header .heading > span {
+	    display: inline-block;
+	    font-weight: 700;
+	    color: #d2d1d7;
+	    margin: 2px 10px 0px 10px;
+	}
+	.content-container header h3 {
+	    font-size: 22px;
+	    padding-left: 28px;
+	    margin: 0px;
+	    width: 100%;
+	    color: #388eff;
+	    text-align: right;
+	}
+	.counter-card .body{
+		text-align: center;
+	}
+	.category-box .counter-card .body{
+		width: 100%;
+		text-align: center;
+	}
+	.counter-card .body img{
+		width: 100%;
+	    height: auto;
+	    max-width: 50%;
+	    display: block;
+	    margin: 0px auto;
+	    padding-bottom: 10px;
+	}
+	.counter-card .body span{
+		width: 100%;
+		font-size: 11px;
+		text-align: center;
+		text-transform: uppercase;
+	}
+}
