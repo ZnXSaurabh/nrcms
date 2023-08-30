@@ -5984,8 +5984,6 @@ class ComplaintController extends Controller
 
 
 
-
-
     // Reports Exports
 
     public function ComplaintsExport(Request $request) 
@@ -6619,6 +6617,133 @@ class ComplaintController extends Controller
 
 
         if (auth()->user()->hasAnyRole('aden')) {
+
+
+
+            return Datatables::of(Complaint::query()->where('location_id', $location)->where('sup_cat_id', Auth::user()->profile->department)->where('status',$status)->orderBy('created_at', 'DESC')->get())
+
+               
+
+            
+
+
+
+            ->addIndexColumn()
+
+
+
+                ->editColumn('comp_type', function($complaint) {
+
+
+
+                    return $complaint->comp_type;
+
+
+
+                })
+
+                
+
+                ->editColumn('comp_id', function($complaint) {
+
+
+
+                    return $complaint->comp_id;
+
+
+
+                })
+
+                
+
+                ->editColumn('category_id', function($complaint) {
+
+
+
+                    return $complaint->category->name;
+
+
+
+                })
+
+
+
+                ->editColumn('sub_category_id', function($complaint) {
+
+
+
+                    return $complaint->subcategory->name;
+
+
+
+                })
+
+                
+
+                ->editColumn('status', function($complaint) {
+
+
+
+                    return $complaint->status;
+
+
+
+                })
+
+
+
+                ->editColumn('created_at', function($complaint) {
+
+
+
+                    return date('d-m-Y h:m A', strtotime($complaint->created_at));
+
+
+
+                })
+
+
+
+
+
+                ->addColumn('actions', function ($complaint) {
+
+
+
+                    if ($complaint->status == 'Resolved' && empty($complaint->feedback)) {
+
+
+
+                        return '<a class="action-btn show-btn mr-2" href="/complaints/'. $complaint->id .'" title="Show Complaint"><i data-feather="eye"></i></a><a class="action-btn edit-btn" href="javascript:void(0)" title="Show Complaint"><i data-feather="message-square"></i></a>';
+
+
+
+                    } else {
+
+
+
+                        return '<a class="action-btn show-btn" href="/complaints/'. $complaint->id .'" title="Show Complaint"><i data-feather="eye"></i></a>';
+
+
+
+                    }
+
+                })
+
+
+
+                ->rawColumns(['actions'])
+
+
+
+                ->make(true);
+
+
+
+        }
+
+
+        if (auth()->user()->hasAnyRole('sse')) {
 
 
 
