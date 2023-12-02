@@ -285,14 +285,12 @@ class UserManagementController extends Controller
 
     public function getVerifyUsersList()
     {
-        $users = User::whereHas('roles', function ($query) {
-                    $query->whereIn('slug', ['user']);
-                })
-                ->where('is_account_verified', 0)
-                ->whereHas('profile', function ($query) {
-                    $query->whereIn('location_id', auth()->user()->locations()->get()->pluck('id'));
-                })
+        $users = User::
+                where('is_account_verified', 0)
+               
                 ->orderBy('name', 'ASC')->get();
+
+                // return $users;
 
         return Datatables::of($users)
             ->addIndexColumn()
