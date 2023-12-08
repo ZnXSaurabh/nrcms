@@ -12,7 +12,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        $schedule->command('send:demo')->everyThirtySeconds();
+        $schedule->command('app:send-escalated-complaints')->dailyAt('11:00')->everyThreeDays(); 
 
     }
 
