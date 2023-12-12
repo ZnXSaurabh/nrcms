@@ -35,7 +35,9 @@ class sendEscalatedComplaints extends Command
      */
     public function handle()
     {
+
         $roles = Escalation::get();
+        
         $config = [];
     
         foreach ($roles as $role) {
@@ -90,9 +92,6 @@ class sendEscalatedComplaints extends Command
 
           
         }
-
-      
-        
     
         $this->info('SMS sent successfully.');
     }
