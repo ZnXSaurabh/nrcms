@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
         $schedule->command('app:send-escalated-complaints')
-        ->weekly()->mondays()->thursdays()->at('11:30');
+        ->weekly()->mondays()->thursdays()->at('12:59');
 
     }
 

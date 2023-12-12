@@ -2,7 +2,6 @@
 
 namespace App;
 
-require_once('vendor/autoload.php');
 
 class MSG91 {
 
