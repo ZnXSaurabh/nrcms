@@ -356,16 +356,16 @@ Route::middleware('role:sse,helpdesk,user,sden,den,aden,super-admin')->group(fun
 
 
 
-    // Route::get('complaint/{id}/feedback', 'SSE\AllocateJobController@feedback')->name('complaint.feedback');
+    Route::get('complaint/{id}/feedback', 'SSE\AllocateJobController@feedback')->name('complaint.feedback');
 
 
 
-    // Route::post('complaint/{id}/feedback', 'SSE\AllocateJobController@submitFeedback')->name('complaint.feedback');
+    Route::post('complaint/{id}/feedback', 'SSE\AllocateJobController@submitFeedback')->name('complaint.submit.feedback');
 
-    Route::match(['get','post'] , 'complaint/{id}/feedback', [
-        'get' => 'SSE\AllocateJobController@feedback',
-        'post' => 'SSE\AllocateJobController@submitFeedback'
-    ])->name('complaint.feedback');
+    // Route::match(['get','post'] , 'complaint/{id}/feedback', [
+    //     'get' => 'SSE\AllocateJobController@feedback',
+    //     'post' => 'SSE\AllocateJobController@submitFeedback'
+    // ])->name('complaint.feedback');
 
     //mobile-view create complaint routes
 
